@@ -1,0 +1,73 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-add-a-currency-selector-to-the-frontend-that-allows-users-to-switch-between-inr-and-usd-store-the-selected-currency-in-localstorage-so-it-persists-across-sessions-default-to-inr-if-no-preference-is-saved",
+      "featureTitle": "Add a currency selector to the frontend that allows users to switch between INR and USD. Store the selected currency in localStorage so it persists across sessions. Default to INR if no preference is saved.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-all-product-prices-cart-totals-order-summaries-checkout-costs-and-any-other-monetary-values-using-the-currently-selected-currency-for-usd-apply-a-fixed-inr-to-usd-conversion-rate-e-g-1-usd-83-inr-defined-as-a-single-constant-that-can-be-updated-easily-show-the-correct-currency-symbol-for-inr-for-usd-alongside-every-price",
+      "featureTitle": "Display all product prices, cart totals, order summaries, checkout costs, and any other monetary values using the currently selected currency. For USD, apply a fixed INR-to-USD conversion rate (e.g., 1 USD = 83 INR) defined as a single constant that can be updated easily. Show the correct currency symbol (₹ for INR, $ for USD) alongside every price.",
+      "files": [
+        "frontend/src/components/ProductCard.tsx",
+        "frontend/src/components/Wishlist.tsx",
+        "frontend/src/pages/Cart.tsx",
+        "frontend/src/pages/Checkout.tsx",
+        "frontend/src/pages/ProductDetails.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-usecurrency-react-context-hook-that-exposes-the-current-currency-code-inr-or-usd-a-setter-to-change-it-and-a-formatprice-amount-number-utility-that-returns-a-locale-formatted-string-with-the-appropriate-symbol-all-components-that-display-monetary-values-must-consume-this-hook-rather-than-formatting-prices-inline",
+      "featureTitle": "Create a useCurrency React context/hook that exposes the current currency code ('INR' or 'USD'), a setter to change it, and a formatPrice(amount: number) utility that returns a locale-formatted string with the appropriate symbol. All components that display monetary values must consume this hook rather than formatting prices inline.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/hooks/useCurrency.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

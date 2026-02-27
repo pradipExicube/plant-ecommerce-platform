@@ -1,0 +1,78 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-27T22:11:36.290Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-12",
+        "summary": "Add a currency selector to the frontend that allows users to switch between INR and USD. Store the selected currency in localStorage so it persists across sessions. Default to INR if no preference is saved.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/Header.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/Header.tsx"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Display all product prices, cart totals, order summaries, checkout costs, and any other monetary values using the currently selected currency. For USD, apply a fixed INR-to-USD conversion rate (e.g., 1 USD = 83 INR) defined as a single constant that can be updated easily. Show the correct currency symbol (₹ for INR, $ for USD) alongside every price.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/pages/ProductDetails.tsx",
+          "frontend/src/pages/Cart.tsx",
+          "frontend/src/pages/Checkout.tsx",
+          "frontend/src/pages/Home.tsx",
+          "frontend/src/components/Wishlist.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProductCard.tsx",
+          "frontend/src/pages/ProductDetails.tsx",
+          "frontend/src/pages/Cart.tsx",
+          "frontend/src/pages/Checkout.tsx",
+          "frontend/src/components/Wishlist.tsx"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Create a useCurrency React context/hook that exposes the current currency code ('INR' or 'USD'), a setter to change it, and a formatPrice(amount: number) utility that returns a locale-formatted string with the appropriate symbol. All components that display monetary values must consume this hook rather than formatting prices inline.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useCurrency.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/hooks/useCurrency.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/App.tsx",
+    "frontend/src/components/Header.tsx",
+    "frontend/src/components/ProductCard.tsx",
+    "frontend/src/components/Wishlist.tsx",
+    "frontend/src/hooks/useCurrency.tsx",
+    "frontend/src/pages/Cart.tsx",
+    "frontend/src/pages/Checkout.tsx",
+    "frontend/src/pages/ProductDetails.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

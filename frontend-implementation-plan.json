@@ -1,0 +1,90 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add multi-currency support with USD as default alongside INR",
+  "requirements": [
+    {
+      "id": "REQ-12",
+      "summary": "Add a currency selector to the frontend that allows users to switch between INR and USD with localStorage persistence, defaulting to INR",
+      "acceptanceCriteria": [
+        "A currency selector (dropdown or toggle) is visible in the site header or a consistent global location.",
+        "Users can switch between INR (₹) and USD ($).",
+        "The selected currency persists in localStorage and is restored on page reload.",
+        "INR is the default currency when no preference is stored."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a currency selector dropdown (INR/USD) to the header navigation area, positioned before the cart icon. Use the useCurrency hook to read and set the current currency. The selector should display the currency code and symbol. Wire the selector's onChange to update the currency via the context."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Display all product prices, cart totals, order summaries, checkout costs, and any other monetary values using the currently selected currency with proper symbol display",
+      "acceptanceCriteria": [
+        "Product cards show prices in the selected currency with the correct symbol.",
+        "Product detail page shows price in the selected currency.",
+        "Cart page subtotal, shipping, tax, and total reflect the selected currency.",
+        "Checkout order summary shows all line items in the selected currency.",
+        "Switching currency updates all displayed prices immediately without a page reload.",
+        "The conversion rate is defined in a single constant/utility file so it can be updated in one place."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded price rendering with formatPrice from useCurrency hook. Remove any hardcoded '₹' symbols and use the formatted price string returned by formatPrice. Ensure the price updates reactively when currency changes."
+        },
+        {
+          "path": "frontend/src/pages/ProductDetails.tsx",
+          "operation": "modify",
+          "description": "Replace hardcoded price rendering with formatPrice from useCurrency hook for the main product price display. Remove any hardcoded '₹' symbols. Ensure the price updates reactively when currency changes."
+        },
+        {
+          "path": "frontend/src/pages/Cart.tsx",
+          "operation": "modify",
+          "description": "Replace all hardcoded price and total rendering (item prices, subtotal, shipping, tax, grand total) with formatPrice from useCurrency hook. Remove any hardcoded '₹' symbols. Ensure all monetary values update reactively when currency changes."
+        },
+        {
+          "path": "frontend/src/pages/Checkout.tsx",
+          "operation": "modify",
+          "description": "Replace all hardcoded price rendering in the order summary section (item prices, subtotal, shipping, tax, total) with formatPrice from useCurrency hook. Remove any hardcoded '₹' symbols. Ensure all monetary values update reactively when currency changes."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Replace any hardcoded price rendering in the featured products section with formatPrice from useCurrency hook. Remove any hardcoded '₹' symbols. Ensure prices update reactively when currency changes."
+        },
+        {
+          "path": "frontend/src/components/Wishlist.tsx",
+          "operation": "modify",
+          "description": "Replace any hardcoded price rendering for wishlist items with formatPrice from useCurrency hook. Remove any hardcoded '₹' symbols. Ensure prices update reactively when currency changes."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Create a useCurrency React context/hook that exposes the current currency code, a setter to change it, and a formatPrice utility for locale-formatted strings with appropriate symbols",
+      "acceptanceCriteria": [
+        "useCurrency hook is available and exported from a dedicated file (e.g., frontend/src/hooks/useCurrency.tsx).",
+        "formatPrice correctly formats amounts for both INR (₹) and USD ($).",
+        "ProductCard, ProductDetails, Cart, Checkout, and any other price-displaying components use formatPrice from useCurrency.",
+        "No hardcoded '₹' or 'INR' currency symbols remain scattered across components."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useCurrency.tsx",
+          "operation": "create",
+          "description": "Create a CurrencyContext and CurrencyProvider that manages currency state ('INR' | 'USD') with localStorage persistence (key: 'greenleaf_currency', default: 'INR'). Export a useCurrency hook that returns { currency, setCurrency, formatPrice }. The formatPrice function accepts a number (price in INR base units) and returns a locale-formatted string with currency symbol. Define a single named constant INR_TO_USD_RATE = 83 at the top of the file. For USD, convert the price using this rate before formatting. Use Intl.NumberFormat for proper currency formatting with INR locale 'en-IN' for INR and 'en-US' for USD."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap the entire RouterProvider with CurrencyProvider so all routes have access to the currency context. Import CurrencyProvider from hooks/useCurrency and add it as an outer wrapper around the existing CartProvider."
+        }
+      ]
+    }
+  ]
+}

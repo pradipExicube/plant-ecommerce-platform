@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Scalable, production-ready ecommerce platform focused on Indoor & Outdoor Plants (Phase 1), built with Next.js (App Router), TypeScript, TailwindCSS, MongoDB, and JWT auth. Designed for multi-category expansion (home decor, gardening tools, accessories) without core refactoring. Eco-friendly minimal UI, mobile-first, SEO optimized, deployed on Vercel + MongoDB Atlas.",
+  "architectural_notes": [
+    "Frontend: Next.js App Router + TypeScript + TailwindCSS, mobile-first eco-friendly minimal design",
+    "Backend: Next.js API routes (or Node.js/Express), modular service architecture, RESTful APIs",
+    "Database: MongoDB with flexible/dynamic product attributes (JSON specs field) and variant support for multi-category scalability",
+    "Auth: JWT-based authentication, role-based access control (Admin/User), Google OAuth ready",
+    "Routing: Slug-based routing for products and categories",
+    "Media: Cloudinary-ready image upload integration",
+    "Payments: Stripe/Razorpay-ready payment gateway structure",
+    "Deployment: Vercel (frontend) + MongoDB Atlas (database)"
+  ],
+  "known_issues": [
+    "Currency is currently hardcoded to INR only"
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-apply-a-minimal-eco-friendly-visual-theme-across-the-entire-frontend-soft-greens-warm-whites-earthy-neutrals-clean-sans-serif-typography-generous-whitespace-and-nature-inspired-micro-details-enforce-this-theme-consistently-across-all-pages-and-components",
+      "title": "Apply a minimal, eco-friendly visual theme across the entire frontend: soft greens, warm whites, earthy neutrals, clean sans-serif typography, generous whitespace, and nature-inspired micro-details. Enforce this theme consistently across all pages and components.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-home-page-with-a-full-width-hero-banner-with-headline-and-cta-a-featured-plants-section-displaying-highlighted-products-a-categories-section-showing-indoor-plants-outdoor-plants-and-pots-a-testimonials-section-and-a-newsletter-subscription-form",
+      "title": "Build a Home page with: a full-width hero banner with headline and CTA, a Featured Plants section displaying highlighted products, a Categories section showing Indoor Plants, Outdoor Plants, and Pots, a Testimonials section, and a Newsletter subscription form.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-product-listing-page-that-displays-all-products-with-filter-controls-for-price-range-plant-type-sunlight-requirement-and-size-sorting-options-price-low-to-high-high-to-low-newest-popular-and-pagination-filters-and-sorting-must-update-the-displayed-results-without-full-page-reload",
+      "title": "Build a Product Listing page that displays all products with: filter controls for price range, plant type, sunlight requirement, and size; sorting options (price low-to-high, high-to-low, newest, popular); and pagination. Filters and sorting must update the displayed results without full page reload.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-product-details-page-slug-based-routing-with-an-image-gallery-plant-care-instructions-current-stock-status-an-add-to-cart-button-and-a-related-products-section",
+      "title": "Build a Product Details page (slug-based routing) with: an image gallery, plant care instructions, current stock status, an Add to Cart button, and a Related Products section.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-cart-system-users-can-add-remove-and-update-quantities-of-items-cart-state-must-persist-to-localstorage-immediately-and-sync-to-the-backend-for-authenticated-users",
+      "title": "Implement a Cart system: users can add, remove, and update quantities of items. Cart state must persist to localStorage immediately and sync to the backend for authenticated users.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-checkout-flow-address-selection-entry-order-summary-with-itemized-costs-tax-and-shipping-calculation-and-a-payment-section-structured-for-stripe-integration-ui-and-data-model-ready-actual-payment-processing-can-be-stubbed",
+      "title": "Build a Checkout flow: address selection/entry, order summary with itemized costs, tax and shipping calculation, and a payment section structured for Stripe integration (UI and data model ready; actual payment processing can be stubbed).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-user-authentication-registration-with-email-password-login-and-forgot-password-flow-use-jwt-based-sessions-structure-the-auth-system-to-support-google-oauth-addition-in-the-future-without-refactoring",
+      "title": "Implement User Authentication: registration with email/password, login, and forgot-password flow. Use JWT-based sessions. Structure the auth system to support Google OAuth addition in the future without refactoring.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-user-dashboard-with-three-sections-order-history-list-of-past-orders-with-status-saved-addresses-add-edit-delete-and-wishlist-saved-products-with-remove-and-add-to-cart-actions",
+      "title": "Build a User Dashboard with three sections: Order History (list of past orders with status), Saved Addresses (add/edit/delete), and Wishlist (saved products with remove and add-to-cart actions).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-panel-role-admin-only-with-product-management-create-edit-delete-products-with-dynamic-attribute-fields-and-image-upload-fields-structured-for-cloudinary-category-management-create-edit-delete-categories-with-slug-and-order-management-view-all-orders-update-order-status",
+      "title": "Build an Admin Panel (role: admin only) with: Product management (create, edit, delete products with dynamic attribute fields and image upload fields structured for Cloudinary), Category management (create, edit, delete categories with slug), and Order management (view all orders, update order status).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-currency-selector-to-the-frontend-that-allows-users-to-switch-between-inr-and-usd-store-the-selected-currency-in-localstorage-so-it-persists-across-sessions-default-to-inr-if-no-preference-is-saved",
+      "title": "Add a currency selector to the frontend that allows users to switch between INR and USD. Store the selected currency in localStorage so it persists across sessions. Default to INR if no preference is saved.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-all-product-prices-cart-totals-order-summaries-checkout-costs-and-any-other-monetary-values-using-the-currently-selected-currency-for-usd-apply-a-fixed-inr-to-usd-conversion-rate-e-g-1-usd-83-inr-defined-as-a-single-constant-that-can-be-updated-easily-show-the-correct-currency-symbol-for-inr-for-usd-alongside-every-price",
+      "title": "Display all product prices, cart totals, order summaries, checkout costs, and any other monetary values using the currently selected currency. For USD, apply a fixed INR-to-USD conversion rate (e.g., 1 USD = 83 INR) defined as a single constant that can be updated easily. Show the correct currency symbol (₹ for INR, $ for USD) alongside every price.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-usecurrency-react-context-hook-that-exposes-the-current-currency-code-inr-or-usd-a-setter-to-change-it-and-a-formatprice-amount-number-utility-that-returns-a-locale-formatted-string-with-the-appropriate-symbol-all-components-that-display-monetary-values-must-consume-this-hook-rather-than-formatting-prices-inline",
+      "title": "Create a useCurrency React context/hook that exposes the current currency code ('INR' or 'USD'), a setter to change it, and a formatPrice(amount: number) utility that returns a locale-formatted string with the appropriate symbol. All components that display monetary values must consume this hook rather than formatting prices inline.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home page with hero banner, featured plants, categories, testimonials, and newsletter subscription",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Product listing page with filters (price, plant type, sunlight, size), pagination, and sorting",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Product details page with image gallery, care instructions, stock status, add to cart, and related products",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Cart system with add/remove/update quantity, localStorage persistence, and backend sync",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Checkout flow with address management, Stripe/Razorpay-ready payment integration, order summary, tax & shipping calculation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "User authentication: register, login, forgot password, Google login ready, JWT-based",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "User dashboard with orders, saved addresses, and wishlist",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Admin panel: add/edit/delete products, manage categories & orders, Cloudinary-ready image uploads",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "MongoDB schemas for User, Product (dynamic specs + variants), Category, Order, Cart, Review supporting multi-category expansion",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "SEO optimization, SSR where needed, image optimization, Lighthouse 90+ performance target",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Design and implement backend data models (Motoko stable variables or equivalent) for: User (name, email, hashed password, role, addresses, wishlist), Product (name, slug, description, images, category, price, stock, specifications as dynamic key-value, variants array), Category (name, slug, parent category for nesting), Order (user reference, items, address, status, payment info, totals), Cart (user reference, items with quantity), and Review (user, product, rating, comment). All models must support multi-category expansion without schema changes.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Implement a modular backend API covering: auth endpoints (register, login, forgot password), product CRUD (with filtering/search query support), category CRUD, cart sync (get, update), order creation and retrieval, wishlist management, and admin order status updates. Structure routes so adding new category-specific filter parameters requires no core logic changes.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Currency support: currently only INR; may need multi-currency support or confirmation that INR is the sole currency",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Plant Ecommerce Platform",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

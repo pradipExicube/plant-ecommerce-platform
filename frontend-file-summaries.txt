@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main app entry point with TanStack Router setup; now wraps the entire app with CurrencyProvider (outermost) and CartProvider so all routes have access to both contexts.",
+  "frontend/src/pages/Home.tsx": "Full home page with hero banner, features strip, category cards linking to filtered product listings, featured products grid with loading skeletons, testimonials section, and newsletter subscription form.",
+  "frontend/src/pages/ProductListing.tsx": "Product listing page with a filter sidebar (category pills, price range slider, plant type/sunlight/size dropdowns), sort dropdown, responsive product grid with pagination, and mobile filter sheet — all state managed locally with URL sync.",
+  "frontend/src/pages/ProductDetails.tsx": "Product detail page with image gallery, specs, reviews, and related products; now uses formatPrice from useCurrency for the main price display, removing the hardcoded $ symbol.",
+  "frontend/src/pages/Cart.tsx": "Shopping cart page with item list and order summary sidebar; all monetary values (item price, item total, subtotal, shipping, tax, grand total, free-shipping threshold) now use formatPrice from useCurrency.",
+  "frontend/src/pages/Checkout.tsx": "Checkout page with address management and Stripe payment; all order summary monetary values use formatPrice from useCurrency, and the Stripe session currency is set to 'inr' (backend base currency).",
+  "frontend/src/pages/Dashboard.tsx": "User dashboard page (protected) with a profile header and tabbed navigation between Order History, Saved Addresses, and Wishlist sections.",
+  "frontend/src/pages/AdminPanel.tsx": "Admin panel page (protected + admin-only) with tabbed sections for Product Management, Category Management, Order Management, and Stripe configuration.",
+  "frontend/src/pages/PaymentSuccess.tsx": "Payment success page that clears the cart on mount, shows an order confirmation message with next-steps info, and provides links to the dashboard and home.",
+  "frontend/src/pages/PaymentFailure.tsx": "Payment failure page showing an error message, common failure reasons, and action buttons to retry checkout, return to cart, or go home.",
+  "frontend/src/components/Footer.tsx": "Site footer with brand info, social links, shop navigation (using TanStack Router's `search` prop for category filters instead of embedded query strings), account links, copyright, and caffeine.ai attribution.",
+  "frontend/src/hooks/useCurrency.tsx": "New CurrencyContext/CurrencyProvider that manages INR/USD currency state with localStorage persistence (key: 'greenleaf_currency', default: 'INR'), exports useCurrency hook returning { currency, setCurrency, formatPrice }, and defines the single INR_TO_USD_RATE = 83 constant used for all conversions.",
+  "frontend/src/components/Header.tsx": "Site header with logo, nav links, cart icon, and user menu; now includes an INR/USD toggle button group before the cart icon that reads/sets currency via useCurrency.",
+  "frontend/src/components/ProductCard.tsx": "Product card component displaying image, name, description, and price; now uses formatPrice from useCurrency instead of hardcoded ₹/$ symbols so prices update reactively on currency change.",
+  "frontend/src/components/Wishlist.tsx": "Wishlist component showing saved products with add-to-cart and remove actions; product prices now use formatPrice from useCurrency instead of hardcoded $ symbols."
+}
